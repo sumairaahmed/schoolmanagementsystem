@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+}
+
+.filter{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/student.jpg') repeat;
+
+
+}
+label.logo{
+    float: left;
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0px 50px;
+    font-weight: bold;
+}
+nav{
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0px 5px;
+}
+#name{
+    text-transform: uppercase;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-decoration: none;
+
+}
+a:hover{
+    background: #fff;
+    color: #333;
+    transition: .5s;
+    text-decoration: none;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+table{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,.6);
+    background: #fafafa;
+    text-align: center;
+    margin-top:50px;
+}
+th, td{
+    padding:12px 15px;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+
+}
+th{
+    background: black;
+    color: white;
+    text-transform: uppercase;
+
+}
+td{
+    text-transform: capitalize;
+}
+tr:nth-child(odd){
+    background: #eeeeee;
+}

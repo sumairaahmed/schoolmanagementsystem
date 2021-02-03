@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/noteupload.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title">Upload Notes</div>
+
+    </div>
+    <div class="form-container">
+        <div class="form-inner">
+            <form method="post" action="noteupdate" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="field">
+                    <input type="text" name="subject" value="{{ note.subject }}">
+                </div>
+                 <div class="field">
+                     <input type="text" name="module" value="{{ note.module }}">
+
+                </div>
+                 <div class="field">
+                     <input type="hidden" value="{{ note.id }}" name="id">
+                     <input type="file" name="notes">
+
+                </div>
+                <div class="field">
+                    <input type="submit" value="Upload">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SERVICES</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/services.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header id="header">
+    <div class="wrapper">
+        <label class="logo">Home School</label>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="services">Services</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="contact">Feedback</a></li>
+        </ul>
+    </nav>
+<div class="container">
+    <div class="services">
+        <h1>Our Services</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <div class="icon">
+                <i class="fa fa-sign-in"></i>
+            </div>
+            <h3>User Login</h3>
+            <p>All users contain individual login.<br>
+                Both teacher and student contain <br>
+                seperate login.Authenticated login.<br>
+                Only user can get access to particular id.
+            </p>
+        </div>
+            <div class="col-md-3 text-center">
+            <div class="icon">
+                <i class="fa fa-users"></i>
+            </div>
+            <h3>Profile Registration</h3>
+            <p>Individual profiles can be updated.<br>
+            Both student and teacher get to<br>
+                update there profile. Teachers have the access
+            to all student profiles. where they can
+            read and update it.
+            </p></div>
+        <div class="col-md-3 text-center">
+            <div class="icon">
+                <i class="fa fa-book"></i>
+            </div>
+            <h3>Year Plan</h3>
+            <p>We provide a yearly study plan for <br>
+            every student. They can add their own year
+            plan or we provide them according to their
+            shedules.</p>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="icon">
+                <i class="fa fa-sticky-note-o"></i>
+            </div>
+            <h3>Subject Notes</h3>
+            <p>We also provide notes for each individual
+            subjects. Teachers have the option to share
+            their notes to students. and students can
+            easily access it at their individual login.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/noteview.css' %}">
+</head>
+<body>
+<div class="filter">
+<header id="header">
+    <div class="wrapper">
+        <label class="logo">Home School</label>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Edit</a></li>
+            <li><a href="noteshome">Notes</a></li>
+            <li><a href="studentlogout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Class</th>
+        <th>Phone</th>
+
+    </tr>
+    {% for usr in user %}
+    <tr>
+        <td><img src="{{ usr.student.profile_pic.url }}" style="width:65px; height:65px;"></td>
+        <td>{{ usr.first_name }} {{ usr.last_name }}</td>
+        <td>{{ usr.email }}</td>
+        <td>{{ usr.student.clas }}</td>
+        <td>{{ usr.student.phone }}</td>
+
+    {% endfor %}
+    </thead>
+</table>
+</body>
+</html>

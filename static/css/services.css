@@ -1,0 +1,84 @@
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/image1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+}
+label.logo{
+    float: left;
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0px 50px;
+    font-weight: bold;
+}
+nav{
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0px 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-decoration: none;
+
+}
+a:hover{
+    background: #fff;
+    color: #333;
+    transition: .5s;
+    text-decoration: none;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+.services{
+    margin: 90px auto;
+    text-align: center;
+}
+h1{
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    line-height: 1px;
+}
+h1:after{
+    content: '';
+    background: white;
+    display: block;
+    width: 150px;
+    margin: 10px auto;
+    height: 3px;
+}
+.icon{
+    font-size: 40px;
+    margin: 20px auto;
+    padding: 10px;
+    height: 80px;
+    width: 80px;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.col-md-3:hover{
+    box-shadow: 5px 7px 9px -3px rgba(255,255,255,0.5);
+    cursor: pointer;
+}

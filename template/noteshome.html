@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/noteview.css' %}">
+</head>
+<body>
+<div class="form-1">
+            <form action="noteupload" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Add Notes">
+            </form>
+    <form action="teacherhome" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Home">
+            </form>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Subject</th>
+        <th>Module</th>
+        <th>Notes</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for n in note %}
+    <tr>
+        <td>{{ n.subject }}</td>
+    <td>{{ n.module }}</td>
+    <td><a href="{{ n.notes.url }}" target="_blank">Download</a></td>
+        <td><a href="deletenotes/{{ n.id }}">Delete</a> </td>
+    </tr>
+    {% endfor %}
+    </thead>
+</table>
+</body>
+</html>

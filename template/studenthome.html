@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student management system</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/studenthome.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<header id="header">
+    <div class="wrapper">
+        <label class="logo">Home School</label>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li id="name"><a href="studentview">{{ user.username }}</a></li>
+            <li><a href="viewteacher">Teachers</a></li>
+            <li><a href="notesview">Notes</a></li>
+            <li><a href="studentlogout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="text">
+        <h1>Welcome,{{ user.username }}</h1>
+        <p>Please utilise our platform to enhance your knowledge</p>
+        <div class="form-1">
+            <form action="notesview" method="post">
+                {% csrf_token %}
+                <input type="submit" value="View Notes">
+            </form>
+        </div>
+    </div>
+</header>
+
+</body>
+</html>

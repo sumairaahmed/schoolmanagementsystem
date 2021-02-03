@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/studententer.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title">Upload Notes</div>
+
+    </div>
+    <div class="form-container">
+        <div class="form-inner">
+
+
+<form action="studententer" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="field">
+        {{ student.profile_pic }}
+
+    </div>
+    <div class="field">
+       {{ user.first_name }}
+
+   </div>
+    <div class="field">
+       {{ user.last_name }}
+   </div>
+    <div class="field">
+       {{ user.email }}
+   </div>
+   <div class="field">
+       {{ student.clas }}
+   </div>
+    <div class="field">
+        {{ student.address}}
+    </div>
+    <div class="field">
+        {{ student.phone }}
+    </div>
+    <div class="field">
+        <input type="submit" value="Update">
+    </div>
+</form>
+             </div>
+    </div>
+</div>
+<script>
+   var form_fields = document.getElementsByTagName('input') ;
+   var text_fields = document.getElementsByTagName('textarea');
+    form_fields[1].placeholder = '';
+    form_fields[2].placeholder = 'First Name';
+    form_fields[3].placeholder = 'Last Name';
+    form_fields[4].placeholder = 'Email';
+    form_fields[5].placeholder = 'Class';
+    text_fields[0].placeholder = 'Address';
+    form_fields[6].placeholder = 'Phone';
+
+
+    for (var field in form_fields){
+        form_fields[field].className += 'form-control';
+    }
+    for (var field in text_fields){
+        text_fields[field].className += 'form-control';
+    }
+
+</script>
+</body>
+</html>

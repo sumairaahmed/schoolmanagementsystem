@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/studententer.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title">Upload Notes</div>
+
+    </div>
+    <div class="form-container">
+        <div class="form-inner">
+
+
+<form action="teacherupdate" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="field">
+        <img src="{{ teacher.profile_pic }}">
+        <input type="file" name="profile" >
+
+    </div>
+    <div class="field">
+        <label>UserName
+       <input type="text" name="username" value="{{ teacher.username }}">
+</label>
+    <div class="field">
+        <label>Full Name
+       <input type="text" name="name" value="{{ teacher.name }}">
+</label>
+   </div>
+    <div class="field">
+       <label>Email
+       <input type="text" name="email" value="{{ teacher.email }}">
+</label>
+   </div>
+   <div class="field">
+       <label>Subject
+       <input type="text" name="subject" value="{{ teacher.subject }}">
+</label>
+   </div>
+    <div class="field">
+        <label>Phone
+       <input type="text" name="phone" value="{{ teacher.phone }}">
+</label>
+    </div>
+    <div class="field">
+        <input type="submit" value="Update">
+    </div>
+    </div>
+</form>
+             </div>
+    </div>
+</div>
+</body>
+</html>

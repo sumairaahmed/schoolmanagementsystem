@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+    background: url('../images/image1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+label.logo{
+    float: left;
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0px 50px;
+    font-weight: bold;
+}
+nav{
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0px 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-decoration: none;
+
+}
+a:hover{
+    background: #fff;
+    color: #333;
+    transition: .5s;
+    text-decoration: none;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+.container{
+    height: 75vh;
+    width: 30%;
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding:0 20px;
+}
+.bg{
+    height: 70px;
+    width: 70px;
+    background: url(../images/Photo.jpg)no-repeat;
+    border-radius:50px;
+    position: absolute;
+    top:0%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-size: cover;
+    background-position: center;
+
+}
+.container h1{
+    color: white;
+    margin-top: 50px;
+}
+.container p{
+    color: white;
+    margin-top: 60px;
+    font-size: large;
+}

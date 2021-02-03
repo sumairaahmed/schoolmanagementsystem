@@ -1,0 +1,154 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)),url('../images/image1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+label.logo{
+    float: left;
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0px 50px;
+    font-weight: bold;
+}
+nav{
+    height: 80px;
+    width: 100%;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0px 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-decoration: none;
+
+}
+a:hover{
+    background: #fff;
+    color: #333;
+    transition: .5s;
+    text-decoration: none;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+#contact-section{
+
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2%;
+}
+#contact-section .container h2{
+    text-align: center;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: rgb(238,235,235);
+    letter-spacing: 2px;
+}
+.icon{
+    margin-right: 40px;
+    padding-right: 90px;
+    width: 100%;
+}
+
+.fa{
+    font-size: 22px;
+    padding: 7%;
+    margin: 5%;
+    cursor: pointer;
+    border-radius: 80%;
+    border: 2px solid rgb(190,190,190);
+    color: rgb(190,190,190);
+}
+.fa:hover{
+    cursor: pointer;
+    border: 2px solid #ffffff ;
+    color: #ffffff;
+}
+.contact-form{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-left: 20px;
+}
+.form-info{
+
+    font-size: 16px;
+    font-style: italic;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+.form-control{
+    margin-left: 50px;
+}
+input{
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+    background-color: rgba(136,133,133,0.5);
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+input::placeholder{
+    color: #ffffff;
+}
+textarea{
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+    background-color: rgba(136,133,133,0.5);
+    color: #ffffff;
+    border: none;
+    outline: none;
+}
+textarea::placeholder{
+    color: #ffffff;
+}
+.submit{
+    width: 40%;
+    background: none;
+    padding: 4px;
+    outline: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    height: 33px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 3%;
+    border: 2px solid rgb(190,190,190);
+    color: rgb(190,190,190);
+}
+.submit:hover{
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    cursor: pointer;
+}

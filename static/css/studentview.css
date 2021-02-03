@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+}
+
+body{
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/student.jpg')no-repeat;
+}
+.form-1 form{
+    width: 100px;
+    height: 50px;
+}
+.form-1 form input[type="submit"]{
+    margin-top: 20px;
+    display: inline-block;
+    color: white;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ffffff;
+}
+.form-1 form input[type="submit"]:hover{
+    background: #ffffff;
+    color: black;
+    cursor: pointer;
+}
+.wrapper{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 550px;
+    display: flex;
+    box-shadow: 0 1px 20px rgba(69,90,100,.08);
+}
+
+.wrapper .left{
+    width: 35%;
+    background: black;
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.wrapper .left img{
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.wrapper .left h4{
+    margin-bottom: 10px;
+}
+
+.wrapper .left p{
+    font-size: 12px;
+}
+
+.wrapper .right{
+    width: 65%;
+    background: #ffffff;
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.wrapper .right .profile,
+.wrapper .right .address{
+    margin-bottom: 25px;
+}
+
+.wrapper .right .profile h3,
+.wrapper .right .address h3{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0 ;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.wrapper .right .info_data,
+.wrapper .right .address_data{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .right .info_data .data,
+.wrapper .right .address_data .data{
+    color: black;
+    margin-bottom: 5px;
+}
+
+.wrapper .right .info_data .data p,
+.wrapper .right .address_data .data p{
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #1a1e21;
+}

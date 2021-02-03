@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <<link rel="stylesheet" type="text/css" href="{% static 'css/studentview.css' %}">
+</head>
+<body>
+<div class="form-1">
+            <form action="studententer" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Update">
+            </form>
+</div>
+<div class="wrapper">
+    <div class="left">
+        <img src="{{ user.student.profile_pic.url }}" width="100">
+        <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+        <p>{{ user.student.clas }} STD</p>
+    </div>
+    <div class="right">
+        <div class="profile">
+            <h3>Profile</h3>
+            <div class="info_data">
+                <div class="data">
+                    <h4>Email</h4>
+                    <p>{{ user.email }}</p>
+                </div>
+                <div class="data">
+                    <h4>Phone</h4>
+                    <p>{{ user.student.phone }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="address">
+            <h3>Address</h3>
+            <div class="address_data">
+                <div class="data">
+                    <p>{{ user.student.address }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-1">
+            <form action="studenthome" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Back">
+            </form>
+</div>
+</body>
+</html>

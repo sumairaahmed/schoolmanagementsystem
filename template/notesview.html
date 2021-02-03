@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/noteview.css' %}">
+</head>
+<body>
+<div class="filter">
+<header id="header">
+    <div class="wrapper">
+        <label class="logo">Home School</label>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Edit</a></li>
+            <li><a href="notesview">Notes</a></li>
+            <li><a href="studentlogout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Subject</th>
+        <th>Module</th>
+        <th>Notes</th>
+    </tr>
+    {% for n in note %}
+    <tr>
+        <td>{{ n.subject }}</td>
+    <td>{{ n.module }}</td>
+    <td><a href="{{ n.notes.url }}" target="_blank">Download</a></td>
+    </tr>
+    {% endfor %}
+    </thead>
+</table>
+</body>
+</html>

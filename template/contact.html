@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header id="header">
+    <div class="wrapper">
+        <label class="logo">Home School</label>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="services">Services</a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="contact">Feedback</a></li>
+        </ul>
+    </nav>
+<section id="contact-section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <div class="icon">
+                <i class="fa fa-map-marker"></i>/<span class="form-info">3rd street, Los Angeles</span><br>
+                <i class="fa fa-phone"></i>/<span class="form-info">000-000-0000</span><br>
+                <i class="fa fa-envelope"></i>/<span class="form-info">sumairachummu@gmail.com</span>
+            </div>
+            <div class="form-control">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Subject of this message">
+                    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                    <button class="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

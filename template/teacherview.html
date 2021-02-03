@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/noteview.css' %}">
+</head>
+<body>
+<div class="filter">
+<header id="header">
+    <div class="wrapper">
+        <label class="logo">Home School</label>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Edit</a></li>
+            <li><a href="notesupload">Notes</a></li>
+            <li><a href="studentlogout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Phone</th>
+
+    </tr>
+    {% for t in teacher %}
+    <tr>
+        <td><img src="{{ t.profile_pic.url }}" style="width:50px; height: 50px;"></td>
+        <td>{{ t.username }}</td>
+        <td>{{ t.email }}</td>
+        <td>{{ t.subject }}</td>
+        <td>{{ t.phone }}</td>
+
+    {% endfor %}
+    </thead>
+</table>
+
+<div class="form-1">
+            <form action="studenthome" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Back">
+            </form>
+</div>
+</body>
+</html>

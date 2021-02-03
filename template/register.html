@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registerlogin.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title student">Student Signup</div>
+        <div class="title teacher">Teacher Signup</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+            <input type="radio" name="slide" id="student" checked>
+            <input type="radio" name="slide" id="teacher">
+            <label for="student" class="slide student">Student</label>
+            <label for="teacher" class="slide teacher">Teacher</label>
+            <div class="slider-tab"></div>
+        </div>
+        <div class="form-inner">
+            <form action="signinf" method="post" class="student">
+                {% csrf_token %}
+                <div class="field">
+                    <input type="text" placeholder="Username" name="username">
+                </div>
+                <div class="field">
+                    <input type="email" placeholder="Email" name="email">
+
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" name="password1">
+
+                </div>
+                <div class="field">
+                    <input type="password" placeholder=" Confirm Password" name="password2">
+
+                </div>
+                <div class="message">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            <div class="field">
+                    <input type="submit" value="SignIn">
+                </div>
+            </form>
+            <form action="teachersigninf" method="post" class="teacher">
+                {% csrf_token %}
+                <div class="field">
+                    <input type="text" placeholder="Username" name="username">
+                </div>
+                <div class="field">
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" name="password1">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder=" Confirm Password" name="password2">
+                </div>
+                <div class="message">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+                <div class="field">
+                    <input type="submit" value="SignIn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const studentForm = document.querySelector("form.student");
+    const studentBtn = document.querySelector("label.student");
+    const teacherBtn = document.querySelector("label.teacher");
+    const studentText = document.querySelector(".title-text .student");
+
+    studentBtn.onclick = function(){
+        studentForm.style.marginLeft= "0%";
+        studentText.style.marginLeft = "0%";
+        };
+    teacherBtn.onclick = function (){
+        studentForm.style.marginLeft = "-50%";
+        studentText.style.marginLeft = "-50%";
+        };
+    var form_fields = document.getElementsByTagName('input') ;
+    form_fields[3].placeholder = 'Username';
+    form_fields[4].placeholder = 'Email';
+    form_fields[5].placeholder = 'Password';
+    form_fields[6].placeholder = 'Confirm Password';
+
+
+    for (var field in form_fields){
+        form_fields[field].className += 'form-control';
+    }
+</script>
+</body>
+</html>
