@@ -3,23 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/studententer.css' %}">
+    <title>Update Info</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/teacherupdate.css' %}">
 </head>
 <body>
 <div class="wrapper">
     <div class="title-text">
-        <div class="title">Upload Notes</div>
+        <div class="title">Complete Registration</div>
 
     </div>
     <div class="form-container">
         <div class="form-inner">
 
 
-<form action="teacherupdate" method="post" enctype="multipart/form-data">
+<form action="TeacherUpdate" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="field">
-        <img src="{{ teacher.profile_pic }}">
+        <img src="{{ teacher.profile_pic.url }}">
         <input type="file" name="profile" >
 
     </div>

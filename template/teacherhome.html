@@ -20,18 +20,23 @@
         </label>
 
         <ul>
-            <li><a href="">Home</a></li>
-            <li id="name"><a href="">{{ teacher.name }}</a></li>
-            <li><a href="viewstudent">Students</a></li>
-            <li><a href="noteshome">Notes</a></li>
-            <li><a href="teacherlogout">Logout</a></li>
+            <li><a href="TeacherHome">Home</a></li>
+            <li id="name"><a href="#">{{ teacher.name }}</a></li>
+            <li><a href="StudentView">Students</a></li>
+            <li><a href="NoteHome">Notes</a></li>
+            <li><a href="TeacherLogout">Logout</a></li>
         </ul>
     </nav>
+    <div class="message">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    </div>
     <div class="text">
         <h1>Welcome,{{ teacher.name }}</h1>
         <p>Together, Let's make this world a better place</p>
         <div class="form-1">
-            <form action="notesuploading" method="post">
+            <form action="NoteUpload" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Upload Notes">
             </form>

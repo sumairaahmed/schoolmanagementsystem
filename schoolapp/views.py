@@ -8,18 +8,18 @@ from schoolapp.forms import notesupload, userform, studentform, teacherform
 from schoolapp.models import Teacher, notes, Student
 
 
-def home(request):
+def Home(request):
     return render(request,'home.html')
-def about(request):
+def About(request):
     return render(request,'about.html')
-def services(request):
+def Services(request):
     return render(request,'services.html')
-def contact(request):
+def Contact(request):
     return render(request,'contact.html')
 
-def signin(request):
+def SignIn(request):
     return render(request,'register.html')
-def signinf(request):
+def DoSignIn(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -28,56 +28,46 @@ def signinf(request):
         if password1==password2:
             if User.objects.filter(username = username).exists():
                 messages.info(request,"Username already exists")
-                return signin(request)
+                return SignIn(request)
             elif User.objects.filter(email = email).exists():
                 messages.info(request,"Email already exists")
-                return signin(request)
+                return SignIn(request)
             else:
                 user = User.objects.create_user(username=username, email=email, password=password1)
                 user.save()
-                return loginn(request)
+                return Loginn(request)
 
         else:
             messages.info(request,"Password doesnot match")
-            return redirect('signin')
-def teachersigninf(request):
+            return SignIn(request)
+
+def DoTeacherSignIn(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-
         if password1==password2:
             if Teacher.objects.filter(username = username).exists():
                 messages.info(request,"Username already exists")
-                return signin(request)
+                return SignIn(request)
             elif Teacher.objects.filter(email = email).exists():
                 messages.info(request,"Email already exists")
-                return signin(request)
+                return SignIn(request)
             else:
                 user = Teacher(username = username,email = email,password = password1)
                 user.save()
-                return teacheredit(request,username)
+                return TeacherEdit(request,username)
         else:
             messages.info(request,"Password doesnot match")
-            return signin(request)
+            return SignIn(request)
 
-def teacherloginf(request):
-    teacher = Teacher.objects.get(username=request.POST['username'])
-    if teacher.password == request.POST['password']:
-        request.session['name'] = teacher.username
-
-        return render(request, 'teacherhome.html', {'teacher':teacher})
-    else:
-        messages.info(request, 'invalid username or password')
-        return loginn(request)
-def teacheredit(request,username):
+def TeacherEdit(request,username):
     teacher = Teacher.objects.get(username= username)
     if teacher!= None:
         return render(request,'teacherinfo.html',{'teacher':teacher})
 
-
-def teacherupdate(request):
+def TeacherUpdate(request):
     if request.method == 'POST':
         teacher = Teacher.objects.get(username=request.POST.get("username",''))
         if teacher!= None:
@@ -95,28 +85,20 @@ def teacherupdate(request):
             teacher.phone = request.POST.get('phone','')
             teacher.save()
 
-            messages.info(request,'updated successfully')
-            return teacherhome(request)
+            messages.success(request,'Updated Successfully')
+            return TeacherHome(request)
 
         else:
-            messages.info(request,'Error Loading')
-            return home(request)
+            messages.info(request,'Error Loading,Contact Admin')
+            return Home(request)
     else:
         messages.info(request,'method not allowed')
 
 
-
-def teacherlogout(request):
-    try:
-        del request.session['name']
-    except KeyError:
-        pass
-    return loginn(request)
-
-def loginn(request):
+def Loginn(request):
     return render(request,'studentteacherlogin.html')
 
-def loginf(request):
+def Dologin(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -124,42 +106,37 @@ def loginf(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request,user)
-            return studenthome(request)
+            return StudentHome(request)
         else:
-            return loginn(request)
-def studentlogout(request):
-    logout(request)
-    return loginn(request)
+            return Loginn(request)
 
-def teacherhome(request):
-    return render(request,'teacherhome.html')
-def noteupload(request):
-    return render(request, 'notesupload.html')
 
-def notesuploading(request):
-    if request.method == 'POST':
-        subject = request.POST.get('subject')
-        module = request.POST.get('module')
-        note = request.FILES.get('notes')
-        notez = notes(subject=subject,module=module,notess=note)
-        notez.save()
-        messages.info(request,'uploaded')
-        return noteshome(request)
+
+def DoTeacherLogin(request):
+    teacher = Teacher.objects.get(username=request.POST['username'])
+    if teacher.password == request.POST['password']:
+        request.session['name'] = teacher.username
+
+        return render(request, 'teacherhome.html', {'teacher':teacher})
     else:
-        messages.info(request,'error uploading')
-        return noteupload(request)
+        messages.info(request, 'invalid username or password')
+        return Loginn(request)
+
+def TeacherLogout(request):
+    try:
+        del request.session['name']
+    except KeyError:
+        pass
+    return Loginn(request)
 
 
-
-def studenthome(request):
+def StudentHome(request):
     return render(request,'studenthome.html')
-def notesview(request):
-    note = notes.objects.all()
-    return render(request,'notesview.html',{'notes':note})
 
-def studentview(request):
+def StudentProfileView(request):
     return render(request,'studentview.html')
-def studententer(request):
+
+def StudentEnter(request):
     user = userform()
     student = studentform()
     if request.method == 'POST':
@@ -168,29 +145,57 @@ def studententer(request):
         if user.is_valid() and student.is_valid():
             user.save()
             student.save()
-            messages.info(request,'Updated Successfully')
-            return studentview(request)
+            messages.success(request,'Updated Successfully')
+            return StudentView(request)
     return render(request,'studententer.html',{'user':user,'student':student})
 
-def viewstudent(request):
+def NotesView(request):
+    note = notes.objects.all()
+    return render(request,'notesview.html',{'notes':note})
+
+def TeacherView(request):
+    teacher = Teacher.objects.all()
+    return render(request,'teacherview.html',{'teacher':teacher})
+
+def StudentLogout(request):
+    logout(request)
+    return Loginn(request)
+
+def TeacherHome(request):
+    return render(request,'teacherhome.html')
+
+def NoteHome(request):
+    note = notes.objects.all()
+    return render(request,'noteshome.html',{'note':note})
+
+def NoteUpload(request):
+    return render(request, 'notesupload.html')
+
+def DoNoteUpload(request):
+    if request.method == 'POST':
+        subject = request.POST.get('subject')
+        module = request.POST.get('module')
+        note = request.FILES.get('notes')
+        notez = notes(subject=subject,module=module,notess=note)
+        notez.save()
+        messages.success(request,'Uploaded')
+        return NoteHome(request)
+    else:
+        messages.error(request,'Error Uploading')
+        return NoteUpload(request)
+
+def StudentView(request):
     user = User.objects.all()
     student = Student.objects.all()
     return render(request,'studentteacherview.html',{'user':user,'student':student})
 
-def viewteacher(request):
-    teacher = Teacher.objects.all()
-    return render(request,'teacherview.html',{'teacher':teacher})
-
-def noteshome(request):
-    note = notes.objects.all()
-    return render(request,'noteshome.html',{'note':note})
-def editnotes(request, id):
+def EditNote(request, id):
     note = notes.objects.get(id = id)
     print(note)
     if note != None:
         return render(request, 'noteupdate.html', {'note': note})
 
-def noteupdate(request):
+def UpdateNote(request):
     if request.method == 'POST':
         note = notes.objects.get(id=request.POST.get('id',''))
         if note is not None:
@@ -206,20 +211,20 @@ def noteupdate(request):
             note.module = request.POST.get('module','')
             note.save()
 
-            messages.info(request,'updated')
+            messages.success(request,'Updated')
             return redirect("editnotes/"+str(note.id)+"")
 
         else:
             messages.info(request,'Error Loading')
-            return home(request)
+            return TeacherHome(request)
     else:
-        messages.info(request,'method not allowed')
+        messages.info(request,'Method not allowed')
 
-def deletenotes(request, id):
+def DeleteNote(request, id):
     note = notes.objects.get(id = id)
     note.delete()
     messages.info(request,'Deleted')
-    return noteshome(request)
+    return NoteHome(request)
 # Create your views here.
 
 

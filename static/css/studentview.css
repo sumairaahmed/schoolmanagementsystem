@@ -9,6 +9,9 @@
 body{
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/student.jpg')no-repeat;
 }
+.form-1{
+    display: inline-block;
+}
 .form-1 form{
     width: 100px;
     height: 50px;

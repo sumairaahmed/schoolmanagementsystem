@@ -3,16 +3,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ user.username }}</title>
     <<link rel="stylesheet" type="text/css" href="{% static 'css/studentview.css' %}">
 </head>
 <body>
 <div class="form-1">
-            <form action="studententer" method="post">
+            <form action="StudentEnter" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Update">
             </form>
 </div>
+<div class="message">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    </div>
 <div class="wrapper">
     <div class="left">
         <img src="{{ user.student.profile_pic.url }}" width="100">
@@ -45,7 +50,7 @@
 </div>
 
 <div class="form-1">
-            <form action="studenthome" method="post">
+            <form action="StudentHome" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Back">
             </form>

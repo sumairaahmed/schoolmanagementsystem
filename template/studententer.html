@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Update Info</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/studententer.css' %}">
 </head>
 <body>
@@ -16,7 +16,7 @@
         <div class="form-inner">
 
 
-<form action="studententer" method="post" enctype="multipart/form-data">
+<form action="StudentEnter" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="field">
         {{ student.profile_pic }}
@@ -63,8 +63,8 @@
     for (var field in form_fields){
         form_fields[field].className += 'form-control';
     }
-    for (var field in text_fields){
-        text_fields[field].className += 'form-control';
+    for (var tfield in text_fields){
+        text_fields[tfield].className += 'form-control';
     }
 
 </script>

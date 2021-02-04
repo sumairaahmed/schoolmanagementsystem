@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SignIn</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registerlogin.css' %}">
 </head>
 <body>
@@ -21,7 +21,7 @@
             <div class="slider-tab"></div>
         </div>
         <div class="form-inner">
-            <form action="signinf" method="post" class="student">
+            <form action="DoSignIn" method="post" class="student">
                 {% csrf_token %}
                 <div class="field">
                     <input type="text" placeholder="Username" name="username">
@@ -47,7 +47,7 @@
                     <input type="submit" value="SignIn">
                 </div>
             </form>
-            <form action="teachersigninf" method="post" class="teacher">
+            <form action="DoTeacherSignIn" method="post" class="teacher">
                 {% csrf_token %}
                 <div class="field">
                     <input type="text" placeholder="Username" name="username">

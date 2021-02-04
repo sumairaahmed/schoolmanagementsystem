@@ -20,18 +20,18 @@
         </label>
 
         <ul>
-            <li><a href="">Home</a></li>
-            <li id="name"><a href="studentview">{{ user.username }}</a></li>
-            <li><a href="viewteacher">Teachers</a></li>
-            <li><a href="notesview">Notes</a></li>
-            <li><a href="studentlogout">Logout</a></li>
+            <li><a href="StudentHome">Home</a></li>
+            <li id="name"><a href="StudentProfileView">{{ user.username }}</a></li>
+            <li><a href="TeacherView">Teachers</a></li>
+            <li><a href="NotesView">Notes</a></li>
+            <li><a href="StudentLogout">Logout</a></li>
         </ul>
     </nav>
     <div class="text">
         <h1>Welcome,{{ user.username }}</h1>
         <p>Please utilise our platform to enhance your knowledge</p>
         <div class="form-1">
-            <form action="notesview" method="post">
+            <form action="NotesView" method="post">
                 {% csrf_token %}
                 <input type="submit" value="View Notes">
             </form>

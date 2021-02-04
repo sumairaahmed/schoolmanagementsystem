@@ -114,7 +114,7 @@ html,body{
 .form .message{
     font-size: 12px;
     color: darkslategrey;
-    margin: 20px;
+    margin: 10px 30px;
 }
 
 form .field input[type="submit"]{

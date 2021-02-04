@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>View Teacher</title>
     <link rel="stylesheet" href="{% static 'css/noteview.css' %}">
 </head>
 <body>
@@ -19,10 +19,10 @@
         </label>
 
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Edit</a></li>
-            <li><a href="notesupload">Notes</a></li>
-            <li><a href="studentlogout">Logout</a></li>
+            <li><a href="StudentHome">Home</a></li>
+            <li><a href="StudentProfileView">{{ user.first_name }} {{ user.last_name }}</a></li>
+            <li><a href="NotesView">Notes</a></li>
+            <li><a href="StudentLogout">Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -50,7 +50,7 @@
 </table>
 
 <div class="form-1">
-            <form action="studenthome" method="post">
+            <form action="StudentHome" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Back">
             </form>

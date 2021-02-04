@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Upload Notes</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/noteupload.css' %}">
 </head>
 <body>
@@ -14,7 +14,7 @@
     </div>
     <div class="form-container">
         <div class="form-inner">
-            <form method="post" action="notesuploading" enctype="multipart/form-data">
+            <form method="post" action="DoNoteUpload" enctype="multipart/form-data">
                 {% csrf_token %}
 
                 <div class="field">
